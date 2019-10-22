@@ -19,7 +19,7 @@ import javax.sql.DataSource;
  * Created by summer on 2016/11/25.
  */
 @Configuration
-@MapperScan(basePackages = "com.neo.mapper.test1", sqlSessionTemplateRef  = "test1SqlSessionTemplate")
+@MapperScan(basePackages = "com.neo.mapper.test1", sqlSessionTemplateRef = "test1SqlSessionTemplate")
 public class DataSource1Config {
 
     @Bean(name = "test1DataSource")
@@ -44,6 +44,7 @@ public class DataSource1Config {
         return new DataSourceTransactionManager(dataSource);
     }
 
+    //sqlSession的包装
     @Bean(name = "test1SqlSessionTemplate")
     @Primary
     public SqlSessionTemplate testSqlSessionTemplate(@Qualifier("test1SqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
